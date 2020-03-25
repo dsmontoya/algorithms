@@ -1,5 +1,20 @@
 package sorting
 
+import (
+	"math"
+)
+
+func bottomUpMergesort(a []byte, lo, hi int) {
+	n := len(a)
+	for len := 1; len < n; len *= 2 {
+		for lo := 0; lo < n-len; lo += len + len {
+			mid := lo + len - 1
+			hi := int(math.Min(float64(lo+len+len-1), float64(n-1)))
+			merge(a, lo, mid, hi)
+		}
+	}
+}
+
 func merge(a []byte, lo, mid, hi int) {
 	aux := make([]byte, len(a))
 	i := lo
