@@ -15,6 +15,12 @@ func bottomUpMergesort(a []byte, lo, hi int) {
 	}
 }
 
+func exchange(a []byte, i, j int) {
+	t := a[i]
+	a[i] = a[j]
+	a[j] = t
+}
+
 func merge(a []byte, lo, mid, hi int) {
 	aux := make([]byte, len(a))
 	i := lo
