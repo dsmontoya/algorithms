@@ -4,8 +4,7 @@ import (
 	"github.com/golang-collections/collections/stack"
 )
 
-func (n *BinaryNode) InorderStack() []int {
-	var result []int
+func (n *BinaryNode) InorderStack() (result []int) {
 	s := stack.New()
 	current := n
 	for {
