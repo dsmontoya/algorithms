@@ -22,5 +22,5 @@ func (n *BinaryNode) InorderStack() (output []int) {
 		output = append(output, current.Value)
 		current = current.Right
 	}
-	return output
+	return
 }
