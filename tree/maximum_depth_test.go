@@ -50,3 +50,26 @@ func TestBinaryNode_MaximumDepthBottomUp(t *testing.T) {
 		})
 	}
 }
+
+func TestBinaryNode_MaximumDepthIteration(t *testing.T) {
+	tests := []struct {
+		name string
+		root *BinaryNode
+		want int
+	}{
+		{"1", testTree, 4},
+		{"2", testTree2, 3},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			n := &BinaryNode{
+				Value: tt.root.Value,
+				Left:  tt.root.Left,
+				Right: tt.root.Right,
+			}
+			if got := n.MaximumDepthIteration(); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("BinaryNode.MaximumDepthIteration() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
